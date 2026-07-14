@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IPEC Ensino | Administração</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/ensino-admin.css">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <img src="img/logo.png" alt="IPEC">
+            <div>
+                <strong>IPEC</strong>
+                <span>ENSINO</span>
+            </div>
+        </div>
+
+
+        <nav class="menu">
+
+            <button class="active">
+                Dashboard
+            </button>
+
+            <button>
+                Usuários
+            </button>
+
+            <button>
+                Cursos
+            </button>
+
+            <button>
+                Salas
+            </button>
+
+            <button>
+                Trilhas
+            </button>
+
+            <button>
+                Matrículas
+            </button>
+
+            <button>
+                Presenças
+            </button>
+
+            <button>
+                Notas
+            </button>
+
+            <button>
+                Certificados
+            </button>
+
+            <button>
+                Relatórios
+            </button>
+
+        </nav>
+
+
+        <a href="ensino.html" class="back">
+            Voltar ao Ensino
+        </a>
+
+    </aside>
+
+
+
+    <!-- CONTEÚDO -->
+    <main class="content">
+
+
+        <header class="top">
+
+            <div>
+                <p>Painel administrativo</p>
+                <h1>Ensino IPEC</h1>
+            </div>
+
+
+            <div class="profile">
+                Administrador Geral
+            </div>
+
+        </header>
+
+
+
+        <!-- INDICADORES -->
+
+        <section class="cards">
+
+
+            <article class="card">
+
+                <span>Alunos</span>
+
+                <strong>
+                    120
+                </strong>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <span>Professores</span>
+
+                <strong>
+                    15
+                </strong>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <span>Cursos Ativos</span>
+
+                <strong>
+                    8
+                </strong>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <span>Matrículas</span>
+
+                <strong>
+                    240
+                </strong>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- DASHBOARD -->
+
+        <section class="dashboard-grid">
+
+
+            <div class="panel">
+
+                <h2>
+                    Cursos recentes
+                </h2>
+
+
+                <div class="empty">
+
+                    Nenhum curso cadastrado
+
+                </div>
+
+            </div>
+
+
+
+            <div class="panel">
+
+                <h2>
+                    Indicadores
+                </h2>
+
+
+                <div class="chart-placeholder">
+
+                    Área para gráficos
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+    </main>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/ensino-admin.js"></script>
+
+</body>
+</html>
