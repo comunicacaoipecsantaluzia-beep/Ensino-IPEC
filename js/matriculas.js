@@ -4,8 +4,7 @@
 // ===============================
 
 
-
-const formMatricula = document.getElementById("form-usuario");
+const formMatricula = document.getElementById("form-matricula");
 
 
 
@@ -23,26 +22,27 @@ if(formMatricula){
 
 
             nome: document
-            .getElementById("nome-usuario")
+            .getElementById("nome-matricula")
             .value,
 
 
             email: document
-            .getElementById("email-usuario")
+            .getElementById("email-matricula")
             .value,
 
 
             telefone: document
-            .getElementById("telefone-usuario")
+            .getElementById("telefone-matricula")
             .value,
 
 
             tipo: document
-            .getElementById("tipo-usuario")
+            .getElementById("tipo-matricula")
             .value
 
 
         };
+
 
 
 
@@ -58,6 +58,7 @@ if(formMatricula){
 
 
             .select();
+
 
 
 
@@ -119,6 +120,7 @@ if(formMatricula){
 
 
 
+
 // ===============================
 // LISTAR MATRÍCULAS
 // ===============================
@@ -130,7 +132,7 @@ async function carregarMatriculas(){
 
 
     const lista = document.getElementById(
-        "lista-usuarios"
+        "lista-matriculas"
     );
 
 
@@ -146,16 +148,14 @@ async function carregarMatriculas(){
 
 
 
-    const {data,error} = await supabaseClient
 
+    const {data,error} = await supabaseClient
 
 
         .from("matriculas")
 
 
-
         .select("*")
-
 
 
         .order(
@@ -164,7 +164,6 @@ async function carregarMatriculas(){
                 ascending:false
             }
         );
-
 
 
 
@@ -191,6 +190,7 @@ async function carregarMatriculas(){
 
 
 
+
     if(data.length === 0){
 
 
@@ -202,7 +202,6 @@ async function carregarMatriculas(){
 
 
     }
-
 
 
 
@@ -259,6 +258,7 @@ async function carregarMatriculas(){
 
 
 
+
             <p>
 
                 Status:
@@ -281,7 +281,9 @@ async function carregarMatriculas(){
 
 
 
+
 }
+
 
 
 

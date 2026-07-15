@@ -41,10 +41,19 @@
 </div>
 
 
+
+
 <nav class="menu">
 
 
 <button class="active">
+
+Matrículas
+
+</button>
+
+
+<button>
 
 Usuários
 
@@ -52,6 +61,7 @@ Usuários
 
 
 </nav>
+
 
 
 
@@ -67,9 +77,13 @@ Voltar ao Ensino
 
 
 
+
+
 <!-- CONTEÚDO -->
 
+
 <main class="content">
+
 
 
 <header class="top">
@@ -87,6 +101,7 @@ Gestão de Matrículas
 
 
 
+
 <div class="profile">
 
 Administrador Geral
@@ -100,7 +115,12 @@ Administrador Geral
 
 
 
-<section class="usuarios-container">
+
+
+<section class="matriculas-container">
+
+
+
 
 
 
@@ -113,7 +133,12 @@ Cadastrar matrícula
 
 
 
+
+
 <form id="form-matricula">
+
+
+
 
 
 
@@ -132,6 +157,8 @@ required>
 
 
 </div>
+
+
 
 
 
@@ -156,6 +183,8 @@ placeholder="Digite o email">
 
 
 
+
+
 <div class="input-group">
 
 <label>
@@ -175,30 +204,42 @@ placeholder="(00) 00000-0000">
 
 
 
+
+
 <div class="input-group">
 
 <label>
-Tipo
+Tipo de matrícula
 </label>
+
 
 
 <select id="tipo-matricula">
 
 
 <option value="aluno">
+
 Aluno
+
 </option>
 
 
+
 <option value="professor">
+
 Professor
+
 </option>
 
 
 </select>
 
 
+
 </div>
+
+
+
 
 
 
@@ -211,6 +252,8 @@ class="btn-primary">
 Cadastrar matrícula
 
 </button>
+
+
 
 
 </form>
@@ -226,7 +269,9 @@ Cadastrar matrícula
 
 
 
+
 <div class="panel">
+
 
 
 <h2>
@@ -250,7 +295,10 @@ Nenhuma matrícula cadastrada
 
 
 
+
+
 </section>
+
 
 
 
@@ -259,11 +307,16 @@ Nenhuma matrícula cadastrada
 
 
 
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
 
-<script src="js/usuarios.js"></script>
+<script src="js/matriculas.js"></script>
+
 
 
 </body>
