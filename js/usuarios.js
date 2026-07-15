@@ -1,10 +1,28 @@
 // =====================================
-// CADASTRO DE USUÁRIOS
-// IPEC ENSINO
+// USUÁRIOS - IPEC ENSINO
 // =====================================
 
 
+// VERIFICA CONEXÃO
+
+console.log("usuarios.js carregado");
+
+
+if(typeof supabaseClient === "undefined"){
+
+    console.error("Supabase não conectado!");
+
+}
+
+
+
+// FORMULÁRIO
+
 const formUsuario = document.getElementById("form-usuario");
+
+
+
+if(formUsuario){
 
 
 formUsuario.addEventListener("submit", async (e) => {
@@ -14,13 +32,41 @@ formUsuario.addEventListener("submit", async (e) => {
 
 
 
-    const nome = document.getElementById("nome-usuario").value;
+    const nome = document
+    .getElementById("nome-usuario")
+    .value;
 
-    const email = document.getElementById("email-usuario").value;
 
-    const telefone = document.getElementById("telefone-usuario").value;
 
-    const tipo = document.getElementById("tipo-usuario").value;
+    const email = document
+    .getElementById("email-usuario")
+    .value;
+
+
+
+    const telefone = document
+    .getElementById("telefone-usuario")
+    .value;
+
+
+
+    const tipo = document
+    .getElementById("tipo-usuario")
+    .value;
+
+
+
+
+    console.log("Enviando usuário:", {
+
+        nome,
+        email,
+        telefone,
+        tipo
+
+    });
+
+
 
 
 
@@ -48,22 +94,43 @@ formUsuario.addEventListener("submit", async (e) => {
 
 
 
+
+
     if(error){
 
-        console.error(error);
 
-        alert("Erro ao cadastrar usuário");
+        console.error(
+            "Erro Supabase:",
+            error
+        );
+
+
+        alert(
+            "Erro ao cadastrar:\n\n" +
+            error.message
+        );
+
 
         return;
+
 
     }
 
 
 
+
+
     alert(
-        "Usuário cadastrado!\nMatrícula: " +
+
+        "Usuário cadastrado com sucesso!\n\n" +
+
+        "Matrícula: " +
+
         data[0].numero_matricula
+
     );
+
+
 
 
 
@@ -74,7 +141,12 @@ formUsuario.addEventListener("submit", async (e) => {
     carregarUsuarios();
 
 
+
 });
+
+
+
+}
 
 
 
@@ -87,37 +159,76 @@ formUsuario.addEventListener("submit", async (e) => {
 async function carregarUsuarios(){
 
 
-    const lista = document.getElementById("lista-usuarios");
+    const lista = document.getElementById(
+        "lista-usuarios"
+    );
+
+
+
+    if(!lista){
+
+        return;
+
+    }
+
+
+
 
 
     const { data, error } = await supabaseClient
 
+
         .from("usuarios")
+
 
         .select("*")
 
-        .order("data_cadastro", {ascending:false});
+
+        .order(
+            "data_cadastro",
+            {
+                ascending:false
+            }
+        );
+
+
 
 
 
     if(error){
 
-        console.error(error);
+
+        console.error(
+            "Erro ao carregar usuários:",
+            error
+        );
+
 
         return;
+
 
     }
 
 
 
-    if(data.length === 0){
+
+
+
+    if(!data || data.length === 0){
+
 
         lista.innerHTML =
         "Nenhum usuário cadastrado";
 
+
         return;
 
+
     }
+
+
+
+
 
 
 
@@ -125,36 +236,59 @@ async function carregarUsuarios(){
 
 
 
+
+
     data.forEach(usuario => {
+
 
 
         lista.innerHTML += `
 
+
         <div class="usuario-item">
 
+
             <strong>
+
                 ${usuario.nome}
+
             </strong>
 
-            <p>
-                Matrícula:
-                ${usuario.numero_matricula}
-            </p>
+
 
             <p>
+
+                Matrícula:
+                ${usuario.numero_matricula}
+
+            </p>
+
+
+
+
+            <p>
+
                 Tipo:
                 ${usuario.tipo}
+
             </p>
+
+
 
         </div>
 
+
         `;
+
 
 
     });
 
 
+
 }
+
+
 
 
 
