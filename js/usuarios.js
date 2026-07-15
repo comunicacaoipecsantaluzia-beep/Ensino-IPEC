@@ -244,40 +244,58 @@ async function carregarUsuarios(){
 
 
 
-        lista.innerHTML += `
+       lista.innerHTML += `
 
 
-        <div class="usuario-item">
+<div class="usuario-item">
 
 
-            <strong>
-
-                ${usuario.nome}
-
-            </strong>
+    <strong>
+        ${usuario.nome}
+    </strong>
 
 
-
-            <p>
-
-                Matrícula:
-                ${usuario.numero_matricula}
-
-            </p>
+    <p>
+        Matrícula:
+        ${usuario.numero_matricula}
+    </p>
 
 
+    <p>
+        Tipo:
+        ${usuario.tipo}
+    </p>
 
 
-            <p>
-
-                Tipo:
-                ${usuario.tipo}
-
-            </p>
+    <div class="acoes">
 
 
+        <button 
+        class="btn-editar"
+        onclick="editarUsuario('${usuario.id}')">
 
-        </div>
+        Editar
+
+        </button>
+
+
+
+        <button 
+        class="btn-excluir"
+        onclick="excluirUsuario('${usuario.id}')">
+
+        Excluir
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+`;
 
 
         `;
@@ -291,7 +309,124 @@ async function carregarUsuarios(){
 }
 
 
+// =====================================
+// EDITAR USUÁRIO
+// =====================================
 
+
+async function editarUsuario(id){
+
+
+    const novoNome = prompt(
+        "Digite o novo nome:"
+    );
+
+
+    if(!novoNome){
+
+        return;
+
+    }
+
+
+
+    const {error} = await supabaseClient
+
+        .from("usuarios")
+
+        .update({
+
+            nome: novoNome
+
+        })
+
+        .eq("id", id);
+
+
+
+    if(error){
+
+        alert(
+            "Erro ao editar usuário"
+        );
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+
+    alert(
+        "Usuário atualizado!"
+    );
+
+
+    carregarUsuarios();
+
+
+}
+
+
+
+
+
+// =====================================
+// EXCLUIR USUÁRIO
+// =====================================
+
+
+async function excluirUsuario(id){
+
+
+    const confirmar = confirm(
+        "Deseja realmente excluir este usuário?"
+    );
+
+
+    if(!confirmar){
+
+        return;
+
+    }
+
+
+
+    const {error} = await supabaseClient
+
+        .from("usuarios")
+
+        .delete()
+
+        .eq("id", id);
+
+
+
+
+    if(error){
+
+        alert(
+            "Erro ao excluir usuário"
+        );
+
+        console.error(error);
+
+        return;
+
+    }
+
+
+
+    alert(
+        "Usuário excluído!"
+    );
+
+
+    carregarUsuarios();
+
+
+}
 
 
 carregarUsuarios();

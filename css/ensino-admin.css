@@ -469,3 +469,58 @@ select{
 
 
 }
+
+.acoes{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+
+
+.btn-editar,
+.btn-excluir{
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-editar{
+
+    background:#111;
+
+    color:white;
+
+}
+
+
+
+.btn-excluir{
+
+    background:#d00000;
+
+    color:white;
+
+}
+
+
+.btn-editar:hover,
+.btn-excluir:hover{
+
+    opacity:.8;
+
+}
