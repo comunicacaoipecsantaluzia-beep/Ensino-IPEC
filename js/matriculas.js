@@ -286,6 +286,29 @@ async function editarMatricula(id){
 
 }
 
+const pesquisa = document.getElementById("pesquisa");
+
+if(pesquisa){
+
+    pesquisa.addEventListener("keyup", pesquisarMatriculas);
+
+}
+
+async function pesquisarMatriculas(){
+
+    const texto = pesquisa.value.trim();
+
+    const { data, error } = await supabaseClient
+        .from("matriculas")
+        .select("*")
+        .or(`nome.ilike.%${texto}%,numero_matricula.ilike.%${texto}%`)
+        .order("numero_matricula");
+
+    if(error) return;
+
+    renderizarMatriculas(data);
+
+}
 
 
 
@@ -293,4 +316,12 @@ async function editarMatricula(id){
 
 // Carrega ao abrir a página
 
+formMatricula.reset();
+
 carregarMatriculas();
+
+if(typeof carregarUsuarios === "function"){
+
+    carregarUsuarios();
+
+}
