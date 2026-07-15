@@ -678,3 +678,77 @@ table button:hover{
     border-radius:10px;
 
 }
+
+/* ========================= */
+/* MODAL */
+/* ========================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.modal-box{
+
+    width:420px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+}
+
+.modal-box h2{
+
+    margin-bottom:25px;
+
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.btn-cancelar{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ddd;
+
+    cursor:pointer;
+
+}
+
+.btn-cancelar:hover{
+
+    background:#cfcfcf;
+
+}

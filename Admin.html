@@ -261,7 +261,72 @@ Nenhum usuário cadastrado.
 </main>
 
 
+<!-- ===================================== -->
+<!-- MODAL CRIAR ACESSO -->
+<!-- ===================================== -->
 
+<div id="modal-acesso" class="modal">
+
+    <div class="modal-box">
+
+        <h2>Criar acesso</h2>
+
+        <input type="hidden" id="matricula-id">
+
+        <div class="campo">
+
+            <label>Nome</label>
+
+            <input
+                type="text"
+                id="usuario-nome"
+                readonly>
+
+        </div>
+
+        <div class="campo">
+
+            <label>Email para Login</label>
+
+            <input
+                type="email"
+                id="usuario-email">
+
+        </div>
+
+        <div class="campo">
+
+            <label>Senha</label>
+
+            <input
+                type="password"
+                id="usuario-senha">
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button
+                class="btn-cancelar"
+                onclick="fecharModal()">
+
+                Cancelar
+
+            </button>
+
+            <button
+                class="btn-primary"
+                onclick="salvarAcesso()">
+
+                Criar acesso
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 

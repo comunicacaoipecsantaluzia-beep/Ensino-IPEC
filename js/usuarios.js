@@ -66,7 +66,11 @@ async function carregarUsuarios(){
 
                 `<button
                     class="btn-primary"
-                    onclick="criarAcesso('${matricula.id}')">
+                    onclick="abrirModal(
+'${matricula.id}',
+'${matricula.nome}',
+'${matricula.email}'
+)">
 
                     Criar acesso
 
@@ -78,6 +82,26 @@ async function carregarUsuarios(){
         `;
 
     });
+
+}
+
+function abrirModal(id,nome,email){
+
+    document.getElementById("modal-acesso").style.display="flex";
+
+    document.getElementById("matricula-id").value=id;
+
+    document.getElementById("usuario-nome").value=nome;
+
+    document.getElementById("usuario-email").value=email;
+
+    document.getElementById("usuario-senha").value="";
+
+}
+
+function fecharModal(){
+
+    document.getElementById("modal-acesso").style.display="none";
 
 }
 
