@@ -244,8 +244,7 @@ async function carregarUsuarios(){
 
 
 
-       lista.innerHTML += `
-
+      lista.innerHTML += `
 
 <div class="usuario-item">
 
@@ -274,7 +273,7 @@ async function carregarUsuarios(){
         class="btn-editar"
         onclick="editarUsuario('${usuario.id}')">
 
-        Editar
+            Editar
 
         </button>
 
@@ -284,7 +283,7 @@ async function carregarUsuarios(){
         class="btn-excluir"
         onclick="excluirUsuario('${usuario.id}')">
 
-        Excluir
+            Excluir
 
         </button>
 
@@ -293,7 +292,6 @@ async function carregarUsuarios(){
 
 
 </div>
-
 
 `;
 
