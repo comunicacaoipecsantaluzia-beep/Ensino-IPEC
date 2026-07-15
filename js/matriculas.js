@@ -248,6 +248,45 @@ async function carregarMatriculas(){
 
 async function excluirMatricula(id){
 
+
+    if(!confirm("Deseja excluir esta matrícula?")) return;
+
+
+
+    const { data, error } = await supabaseClient
+
+    .from("matriculas")
+
+    .delete()
+
+    .eq("id", id)
+
+    .select();
+
+
+
+    if(error){
+
+        console.error("Erro ao excluir:", error);
+
+        alert("Erro ao excluir matrícula");
+
+        return;
+
+    }
+
+
+
+    console.log("Excluído:", data);
+
+
+    alert("Matrícula excluída com sucesso!");
+
+
+    carregarMatriculas();
+
+
+}
     if(!confirm("Deseja excluir esta matrícula?")) return;
 
     const { error } = await supabaseClient
