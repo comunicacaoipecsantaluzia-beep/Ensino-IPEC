@@ -232,8 +232,8 @@ async function carregarMatriculas(){
             </button>
 
             <button onclick="excluirMatricula('${matricula.id}')">
-                🗑️
-            </button>
+    🗑️
+</button>
 
         </td>
 
@@ -248,21 +248,13 @@ async function carregarMatriculas(){
 
 async function excluirMatricula(id){
 
-
     if(!confirm("Deseja excluir esta matrícula?")) return;
 
 
-
-    const { data, error } = await supabaseClient
-
+    const { error } = await supabaseClient
     .from("matriculas")
-
     .delete()
-
-    .eq("id", id)
-
-    .select();
-
+    .eq("id", id);
 
 
     if(error){
@@ -276,15 +268,7 @@ async function excluirMatricula(id){
     }
 
 
-
-    console.log("Excluído:", data);
-
-
-    alert("Matrícula excluída com sucesso!");
-
-
     carregarMatriculas();
-
 
 }
     if(!confirm("Deseja excluir esta matrícula?")) return;
