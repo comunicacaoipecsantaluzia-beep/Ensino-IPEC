@@ -45,20 +45,21 @@
 
 <nav class="menu">
 
-
-<button class="active">
+<button
+id="btn-matriculas"
+class="active">
 
 Matrículas
 
 </button>
 
 
-<button>
+<button
+id="btn-usuarios">
 
 Usuários
 
 </button>
-
 
 </nav>
 
@@ -117,184 +118,51 @@ Administrador Geral
 
 
 
-<section class="matriculas-container">
+<!-- ========================= -->
+<!-- MATRÍCULAS -->
+<!-- ========================= -->
+
+<section
+id="matriculas-section"
+class="page-section">
+
+    <!-- TODO O SEU CÓDIGO DE MATRÍCULAS FICA AQUI -->
+
+</section>
 
 
 
+<!-- ========================= -->
+<!-- USUÁRIOS -->
+<!-- ========================= -->
 
+<section
+id="usuarios-section"
+class="page-section"
+style="display:none;">
 
 
 <div class="panel">
 
-
 <h2>
-Cadastrar matrícula
+Usuários do Sistema
 </h2>
 
+<p>
+
+Aqui serão exibidos todos os usuários que possuem acesso ao sistema.
+
+</p>
 
 
+<div id="lista-usuarios">
 
-
-<form id="form-matricula">
-
-
-
-
-
-
-<div class="input-group">
-
-<label>
-Nome completo
-</label>
-
-
-<input 
-type="text"
-id="nome-matricula"
-placeholder="Digite o nome"
-required>
-
+Nenhum usuário cadastrado.
 
 </div>
 
 
-
-
-
-
-
-<div class="input-group">
-
-<label>
-Email
-</label>
-
-
-<input 
-type="email"
-id="email-matricula"
-placeholder="Digite o email">
-
-
 </div>
-
-
-
-
-
-
-
-<div class="input-group">
-
-<label>
-Telefone
-</label>
-
-
-<input 
-type="text"
-id="telefone-matricula"
-placeholder="(00) 00000-0000">
-
-
-</div>
-
-
-
-
-
-
-
-<div class="input-group">
-
-<label>
-Tipo de matrícula
-</label>
-
-
-
-<select id="tipo-matricula">
-
-
-<option value="aluno">
-
-Aluno
-
-</option>
-
-
-
-<option value="professor">
-
-Professor
-
-</option>
-
-
-</select>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<button 
-type="submit"
-class="btn-primary">
-
-Cadastrar matrícula
-
-</button>
-
-
-
-
-</form>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="panel">
-
-
-
-<h2>
-Matrículas cadastradas
-</h2>
-
-
-
-
-<div id="lista-matriculas">
-
-
-Nenhuma matrícula cadastrada
-
-
-</div>
-
-
-
-</div>
-
-
-
 
 
 </section>
@@ -316,6 +184,8 @@ Nenhuma matrícula cadastrada
 <script src="js/supabase.js"></script>
 
 <script src="js/matriculas.js"></script>
+
+<script src="js/admin.js"></script>
 
 
 
