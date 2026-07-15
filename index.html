@@ -1,304 +1,270 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>IPEC Ensino | Administração</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>IPEC Ensino | Administração</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/ensino-admin.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/ensino-admin.css">
+
 </head>
+
 
 <body>
 
+
 <div class="admin-container">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
 
-        <div class="brand">
-            <img src="img/logo.png" alt="IPEC">
-            <div>
-                <strong>IPEC</strong>
-                <span>ENSINO</span>
-            </div>
-        </div>
 
+<!-- SIDEBAR -->
 
-        <nav class="menu">
+<aside class="sidebar">
 
-            <button class="active">
-                Dashboard
-            </button>
 
-            <button>
-                Usuários
-            </button>
+<div class="brand">
 
-            <button>
-                Cursos
-            </button>
+    <img src="img/logo.png" alt="IPEC">
 
-            <button>
-                Salas
-            </button>
+    <img src="img/logo-ensino.png" alt="IPEC Ensino">
 
-            <button>
-                Trilhas
-            </button>
+</div>
 
-            <button>
-                Matrículas
-            </button>
 
-            <button>
-                Presenças
-            </button>
+<nav class="menu">
 
-            <button>
-                Notas
-            </button>
 
-            <button>
-                Certificados
-            </button>
+<button class="active">
 
-            <button>
-                Relatórios
-            </button>
+Usuários
 
-        </nav>
+</button>
 
 
-        <a href="ensino.html" class="back">
-            Voltar ao Ensino
-        </a>
+</nav>
 
-    </aside>
 
 
+<a href="ensino.html" class="back">
 
-    <!-- CONTEÚDO -->
-    <main class="content">
+Voltar ao Ensino
 
+</a>
 
-        <header class="top">
 
-            <div>
-                <p>Painel administrativo</p>
-                <h1>Ensino IPEC</h1>
-            </div>
+</aside>
 
 
-            <div class="profile">
-                Administrador Geral
-            </div>
 
-        </header>
 
 
+<!-- CONTEÚDO -->
 
-        <!-- INDICADORES -->
+<main class="content">
 
-        <section class="cards">
 
 
-            <article class="card">
+<header class="top">
 
-                <span>Alunos</span>
 
-                <strong>
-                    120
-                </strong>
+<div>
 
-            </article>
+<p>Painel administrativo</p>
 
+<h1>
+Gestão de Usuários
+</h1>
 
+</div>
 
-            <article class="card">
 
-                <span>Professores</span>
 
-                <strong>
-                    15
-                </strong>
+<div class="profile">
 
-            </article>
+Administrador Geral
 
+</div>
 
 
-            <article class="card">
+</header>
 
-                <span>Cursos Ativos</span>
 
-                <strong>
-                    8
-                </strong>
 
-            </article>
 
 
+<section class="usuarios-container">
 
-            <article class="card">
 
-                <span>Matrículas</span>
 
-                <strong>
-                    240
-                </strong>
+<div class="panel">
 
-            </article>
 
+<h2>
+Cadastrar usuário
+</h2>
 
-        </section>
 
 
+<form id="form-usuario">
 
-        <!-- DASHBOARD -->
 
-        <!-- USUÁRIOS -->
 
-<section id="usuarios-section" class="panel-section">
+<div class="input-group">
 
-    <div class="panel">
+<label>
+Nome completo
+</label>
 
-        <h2>
-            Cadastro de Usuários
-        </h2>
+<input 
+type="text"
+id="nome-usuario"
+placeholder="Digite o nome"
+required>
 
+</div>
 
-        <form id="form-usuario">
 
 
-            <input 
-            type="text" 
-            id="nome-usuario"
-            placeholder="Nome completo"
-            required>
 
+<div class="input-group">
 
-            <input 
-            type="email" 
-            id="email-usuario"
-            placeholder="Email"
-            required>
+<label>
+Email
+</label>
 
+<input 
+type="email"
+id="email-usuario"
+placeholder="Digite o email"
+required>
 
-            <input 
-            type="text" 
-            id="telefone-usuario"
-            placeholder="Telefone">
+</div>
 
 
-            <select id="tipo-usuario">
 
-                <option value="aluno">
-                    Aluno
-                </option>
 
-                <option value="professor">
-                    Professor
-                </option>
+<div class="input-group">
 
-                <option value="admin">
-                    Administrador
-                </option>
+<label>
+Telefone
+</label>
 
-            </select>
+<input 
+type="text"
+id="telefone-usuario"
+placeholder="(00) 00000-0000">
 
+</div>
 
-            <button type="submit">
-                Cadastrar usuário
-            </button>
 
 
-        </form>
 
+<div class="input-group">
 
-    </div>
+<label>
+Tipo de usuário
+</label>
 
 
+<select id="tipo-usuario">
 
-    <div class="panel">
 
+<option value="aluno">
+Aluno
+</option>
 
-        <h2>
-            Usuários cadastrados
-        </h2>
 
+<option value="professor">
+Professor
+</option>
 
-        <div id="lista-usuarios">
 
-            Nenhum usuário cadastrado
+<option value="admin">
+Administrador
+</option>
 
-        </div>
 
-
-    </div>
-
-
-</section>
-
-
-            <div class="panel">
-
-                <h2>
-                    Cursos recentes
-                </h2>
-
-
-                <div class="empty">
-
-                    Nenhum curso cadastrado
-
-                </div>
-
-            </div>
-
-
-
-            <div class="panel">
-
-                <h2>
-                    Indicadores
-                </h2>
-
-
-                <div class="chart-placeholder">
-
-                    Área para gráficos
-
-                </div>
-
-            </div>
-
-
-        </section>
-
-
-
-    </main>
+</select>
 
 
 </div>
 
 
+
+
+<button class="btn-primary">
+
+Cadastrar usuário
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="panel">
+
+
+<h2>
+Usuários cadastrados
+</h2>
+
+
+
+<div id="lista-usuarios">
+
+
+Nenhum usuário cadastrado
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+</main>
+
+
+</div>
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="js/supabase.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script src="js/supabase.js"></script>
-
-<script src="js/ensino-admin.js"></script>
 
 <script src="js/usuarios.js"></script>
 
+
 </body>
+
 </html>
