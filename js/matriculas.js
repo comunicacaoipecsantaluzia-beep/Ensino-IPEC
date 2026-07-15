@@ -25,25 +25,19 @@ const numeroMatricula =
 "2026" + String(count + 1).padStart(4, "0");
 
 
-        const matricula = {
+       const matricula = {
 
     numero_matricula: numeroMatricula,
 
-    nome: document
-    .getElementById("nome-matricula")
-    .value,
+    nome: document.getElementById("nome-matricula").value,
 
-    email: document
-    .getElementById("email-matricula")
-    .value,
+    email: document.getElementById("email-matricula").value,
 
-    telefone: document
-    .getElementById("telefone-matricula")
-    .value,
+    telefone: document.getElementById("telefone-matricula").value,
 
-    tipo: document
-    .getElementById("tipo-matricula")
-    .value
+    tipo: document.getElementById("tipo-matricula").value,
+
+    status: document.getElementById("status-matricula").value
 
 };
 
@@ -217,74 +211,80 @@ async function carregarMatriculas(){
 
 
 
-    data.forEach(matricula => {
+ data.forEach(matricula => {
 
+    lista.innerHTML += `
 
+    <tr>
 
-        lista.innerHTML += `
+        <td>${matricula.numero_matricula}</td>
 
+        <td>${matricula.nome}</td>
 
+        <td>${matricula.tipo}</td>
 
-        <div class="usuario-item">
+        <td>${matricula.status}</td>
 
+        <td>
 
+            <button onclick="editarMatricula('${matricula.id}')">
+                ✏️
+            </button>
 
-            <strong>
+            <button onclick="excluirMatricula('${matricula.id}')">
+                🗑️
+            </button>
 
-                ${matricula.nome}
+        </td>
 
-            </strong>
+    </tr>
 
+    `;
 
-
-
-            <p>
-
-                Matrícula:
-                ${matricula.numero_matricula}
-
-            </p>
-
-
-
-
-
-            <p>
-
-                Tipo:
-                ${matricula.tipo}
-
-            </p>
-
-
-
-
-
-            <p>
-
-                Status:
-                ${matricula.status}
-
-            </p>
-
-
-
-        </div>
-
-
-
-        `;
-
-
-
-    });
-
-
-
+});
 
 
 }
 
+async function excluirMatricula(id){
+
+    if(!confirm("Deseja excluir esta matrícula?")) return;
+
+    const { error } = await supabaseClient
+    .from("matriculas")
+    .delete()
+    .eq("id", id);
+
+    if(error){
+        alert("Erro ao excluir.");
+        return;
+    }
+
+    carregarMatriculas();
+
+}
+
+async function editarMatricula(id){
+
+    const nome = prompt("Novo nome:");
+
+    if(nome == null) return;
+
+    const { error } = await supabaseClient
+    .from("matriculas")
+    .update({
+        nome: nome
+    })
+    .eq("id", id);
+
+    if(error){
+        alert("Erro ao editar.");
+        return;
+    }
+
+    carregarMatriculas();
+
+}
 
 
 

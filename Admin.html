@@ -118,19 +118,107 @@ Administrador Geral
 
 
 
-<!-- ========================= -->
-<!-- MATRÍCULAS -->
-<!-- ========================= -->
+<section id="matriculas-section" class="page-section">
 
-<section
-id="matriculas-section"
-class="page-section">
+<div class="panel">
 
-    <!-- TODO O SEU CÓDIGO DE MATRÍCULAS FICA AQUI -->
+<h2>Nova Matrícula</h2>
+
+<form id="form-matricula">
+
+<div class="form-grid">
+
+<div class="campo">
+<label>Nome Completo</label>
+<input type="text" id="nome-matricula" required>
+</div>
+
+<div class="campo">
+<label>Email</label>
+<input type="email" id="email-matricula" required>
+</div>
+
+<div class="campo">
+<label>Telefone</label>
+<input type="text" id="telefone-matricula">
+</div>
+
+<div class="campo">
+<label>Tipo</label>
+
+<select id="tipo-matricula">
+
+<option value="aluno">Aluno</option>
+
+<option value="professor">Professor</option>
+
+</select>
+
+</div>
+
+<div class="campo">
+<label>Status</label>
+
+<select id="status-matricula">
+
+<option value="Ativo">Ativo</option>
+
+<option value="Pendente">Pendente</option>
+
+<option value="Cancelado">Cancelado</option>
+
+<option value="Concluído">Concluído</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button type="submit">
+
+Cadastrar Matrícula
+
+</button>
+
+</form>
+
+</div>
+
+<div class="panel">
+
+<h2>Lista de Matrículas</h2>
+
+<input
+type="text"
+id="pesquisa"
+placeholder="Pesquisar matrícula...">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Matrícula</th>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Status</th>
+<th>Ações</th>
+
+</tr>
+
+</thead>
+
+<tbody id="lista-matriculas">
+
+</tbody>
+
+</table>
+
+</div>
 
 </section>
-
-
 
 <!-- ========================= -->
 <!-- USUÁRIOS -->
