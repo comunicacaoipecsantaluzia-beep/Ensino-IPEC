@@ -1,89 +1,138 @@
-console.log("usuarios.js carregado");
-
-
 // ===============================
-// CADASTRAR USUÁRIO
+// MATRÍCULAS
+// IPEC ENSINO
 // ===============================
 
 
-const formUsuario = document.getElementById("form-usuario");
+
+const formMatricula = document.getElementById("form-usuario");
 
 
-if(formUsuario){
+
+if(formMatricula){
 
 
-    formUsuario.addEventListener("submit", async (e)=>{
+    formMatricula.addEventListener("submit", async (e)=>{
 
 
         e.preventDefault();
 
 
 
-        const usuario = {
+        const matricula = {
 
-            nome: document.getElementById("nome-usuario").value,
 
-            email: document.getElementById("email-usuario").value,
+            nome: document
+            .getElementById("nome-usuario")
+            .value,
 
-            telefone: document.getElementById("telefone-usuario").value,
 
-            tipo: document.getElementById("tipo-usuario").value
+            email: document
+            .getElementById("email-usuario")
+            .value,
+
+
+            telefone: document
+            .getElementById("telefone-usuario")
+            .value,
+
+
+            tipo: document
+            .getElementById("tipo-usuario")
+            .value
+
 
         };
 
 
 
+
+
         const {data,error} = await supabaseClient
 
-            .from("usuarios")
 
-            .insert([usuario])
+            .from("matriculas")
+
+
+            .insert([matricula])
+
 
             .select();
 
 
 
+
+
+
         if(error){
 
-            console.error(error);
 
-            alert("Erro ao cadastrar usuário");
+            console.error(
+                "Erro ao criar matrícula:",
+                error
+            );
+
+
+            alert(
+                "Erro ao criar matrícula"
+            );
+
 
             return;
+
 
         }
 
 
 
+
+
+
         alert(
-            "Usuário cadastrado!\nMatrícula: "
+
+            "Matrícula criada com sucesso!\n\nNúmero: "
+
             + data[0].numero_matricula
+
         );
 
 
-        formUsuario.reset();
 
 
-        carregarUsuarios();
+
+        formMatricula.reset();
+
+
+
+        carregarMatriculas();
+
 
 
     });
+
 
 
 }
 
 
 
+
+
+
 // ===============================
-// LISTAR USUÁRIOS
+// LISTAR MATRÍCULAS
 // ===============================
 
 
-async function carregarUsuarios(){
+
+async function carregarMatriculas(){
 
 
 
-    const lista = document.getElementById("lista-usuarios");
+    const lista = document.getElementById(
+        "lista-usuarios"
+    );
+
 
 
     if(!lista){
@@ -95,24 +144,67 @@ async function carregarUsuarios(){
 
 
 
+
+
     const {data,error} = await supabaseClient
 
-        .from("usuarios")
+
+
+        .from("matriculas")
+
+
 
         .select("*")
 
-        .order("data_cadastro",{ascending:false});
+
+
+        .order(
+            "data_cadastro",
+            {
+                ascending:false
+            }
+        );
+
+
+
+
 
 
 
 
     if(error){
 
-        console.error(error);
+
+        console.error(
+            "Erro ao buscar matrículas:",
+            error
+        );
+
 
         return;
 
+
     }
+
+
+
+
+
+
+    if(data.length === 0){
+
+
+        lista.innerHTML =
+        "Nenhuma matrícula cadastrada";
+
+
+        return;
+
+
+    }
+
+
+
 
 
 
@@ -122,39 +214,70 @@ async function carregarUsuarios(){
 
 
 
-    data.forEach(usuario=>{
+
+
+
+    data.forEach(matricula => {
+
 
 
         lista.innerHTML += `
 
 
+
         <div class="usuario-item">
 
 
+
             <strong>
-                ${usuario.nome}
+
+                ${matricula.nome}
+
             </strong>
 
 
+
+
             <p>
+
                 Matrícula:
-                ${usuario.numero_matricula}
+                ${matricula.numero_matricula}
+
             </p>
+
+
+
 
 
             <p>
+
                 Tipo:
-                ${usuario.tipo}
+                ${matricula.tipo}
+
             </p>
+
+
+
+
+            <p>
+
+                Status:
+                ${matricula.status}
+
+            </p>
+
 
 
         </div>
 
 
+
         `;
 
 
+
     });
+
 
 
 
@@ -162,4 +285,9 @@ async function carregarUsuarios(){
 
 
 
-carregarUsuarios();
+
+
+
+// Carrega ao abrir a página
+
+carregarMatriculas();
