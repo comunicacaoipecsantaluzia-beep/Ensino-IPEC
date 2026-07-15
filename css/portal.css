@@ -1,0 +1,192 @@
+/* =====================================
+   IPEC ENSINO - PORTAL
+===================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter', Arial, sans-serif;
+}
+
+
+
+body{
+
+    background:#f5f5f5;
+    color:#111;
+
+}
+
+
+
+/* HEADER */
+
+.header{
+
+    height:80px;
+
+    background:#111;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 50px;
+
+    color:white;
+
+}
+
+
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:24px;
+
+    font-weight:800;
+
+}
+
+
+
+#sair{
+
+    background:#b00000;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+}
+
+
+
+#sair:hover{
+
+    opacity:.8;
+
+}
+
+
+
+/* CONTEÚDO */
+
+main{
+
+    padding:40px;
+
+}
+
+
+
+
+.area{
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+
+
+.area h1{
+
+    margin-bottom:30px;
+
+    font-size:32px;
+
+}
+
+
+
+/* CARDS */
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.card h3{
+
+    font-size:22px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.card p{
+
+    color:#666;
+
+}
+
+
+
+/* ESCONDER ÁREAS */
+
+
+#professor-area{
+
+    display:none;
+
+}
+
+
+#aluno-area{
+
+    display:none;
+
+}
