@@ -105,4 +105,100 @@ function fecharModal(){
 
 }
 
+// ================================
+// CRIAR ACESSO
+// ================================
+
+async function salvarAcesso(){
+
+    const matricula_id = document.getElementById("matricula-id").value;
+
+    const nome = document.getElementById("usuario-nome").value;
+
+    const email = document.getElementById("usuario-email").value;
+
+    const password = document.getElementById("usuario-senha").value;
+
+
+    if(!email || !password){
+
+        alert("Preencha email e senha.");
+
+        return;
+
+    }
+
+
+    const { data: matricula, error } = await supabaseClient
+        .from("matriculas")
+        .select("tipo")
+        .eq("id", matricula_id)
+        .single();
+
+
+    if(error){
+
+        alert("Erro ao buscar matrícula.");
+
+        return;
+
+    }
+
+
+    const resposta = await fetch(
+        "https://ivvuvmlxoiygzywsclba.supabase.co/functions/v1/create-user",
+        {
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":"application/json",
+
+                "Authorization":
+                `Bearer ${supabaseClient.auth.session}`
+
+            },
+
+            body:JSON.stringify({
+
+                email,
+
+                password,
+
+                matricula_id,
+
+                nome,
+
+                nome_exibicao:nome,
+
+                nivel_acesso:matricula.tipo
+
+            })
+
+        }
+    );
+
+
+    const resultado = await resposta.json();
+
+
+    if(!resposta.ok){
+
+        alert(resultado.erro || "Erro ao criar acesso");
+
+        return;
+
+    }
+
+
+    alert("Acesso criado com sucesso!");
+
+    fecharModal();
+
+    carregarUsuarios();
+
+
+}
+
 carregarUsuarios();
