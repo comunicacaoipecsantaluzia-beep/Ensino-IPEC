@@ -16,35 +16,36 @@ if(formMatricula){
 
         e.preventDefault();
 
+const { count } = await supabaseClient
+.from("matriculas")
+.select("*", { count: "exact", head: true });
+
+
+const numeroMatricula = 
+"2026" + String(count + 1).padStart(4, "0");
 
 
         const matricula = {
 
+    numero_matricula: numeroMatricula,
 
-            nome: document
-            .getElementById("nome-matricula")
-            .value,
+    nome: document
+    .getElementById("nome-matricula")
+    .value,
 
+    email: document
+    .getElementById("email-matricula")
+    .value,
 
-            email: document
-            .getElementById("email-matricula")
-            .value,
+    telefone: document
+    .getElementById("telefone-matricula")
+    .value,
 
+    tipo: document
+    .getElementById("tipo-matricula")
+    .value
 
-            telefone: document
-            .getElementById("telefone-matricula")
-            .value,
-
-
-            tipo: document
-            .getElementById("tipo-matricula")
-            .value
-
-
-        };
-
-
-
+};
 
 
 
