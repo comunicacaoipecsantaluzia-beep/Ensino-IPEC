@@ -137,17 +137,11 @@ formLogin.addEventListener("submit", async(e)=>{
 
     const {data: perfil,error: erroPerfil} = await supabaseClient
 
+.from("usuarios")
 
-        .from("usuarios")
+.select("*")
 
-
-        .select("*")
-
-
-        .eq("auth_id", usuarioAuth.id)
-
-
-        .single();
+.eq("auth_id", usuarioAuth.id);
 
 
 
